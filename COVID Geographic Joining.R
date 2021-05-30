@@ -46,7 +46,7 @@ COVID_by_Census_Division <- Geographic_Union %>%
             Population = sum(Population_Allocated),
             Urban_Population = sum(Urban),
             Rural_Population = sum(Rural)) %>% 
-  mutate(Urban_Percentage = Urban_Population/(Urban_Population + Rural_Population),
+  mutate(Rural_Percentage = Rural_Population/(Urban_Population + Rural_Population),
          Report_Date = mdy(Date)) %>% 
   select(-Date)
 
