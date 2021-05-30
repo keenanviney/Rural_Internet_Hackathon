@@ -1,5 +1,5 @@
 ##--------------------------------
-# Rural Internet Panel Data Model
+# COVID Geographic Union
 ##--------------------------------
 
 ## Load Packages ----------------------------------------------------------------------------------
@@ -10,11 +10,11 @@ library(lubridate)
 ## Load Data --------------------------------------------------------------------------------------
 
 # https://www.alberta.ca/data/stats/covid-19-alberta-statistics-data.csv
-COVID_Cases_by_Local_Area <- read_csv("C:\\Users\\Keenan Viney\\Desktop\\Project Folder\\Rural Internet Access\\COVID\\covid-19-alberta-statistics-map-data.csv")
+COVID_Cases_by_Local_Area <- read_csv("~\\COVID\\covid-19-alberta-statistics-map-data.csv")
 
 # Spatial Union between Alberta Local Health Regions: https://www.alberta.ca/data/stats/covid-19-alberta-statistics-map-data.csv
 # and the Census Division digital bountry file: https://www12.statcan.gc.ca/census-recensement/2011/geo/bound-limit/bound-limit-2016-eng.cfm
-Geographic_Union <- read_csv("C:\\Users\\Keenan Viney\\Desktop\\Project Folder\\Rural Internet Access\\COVID\\Geographic Joining.csv")
+Geographic_Union <- read_csv("~\\COVID\\Geographic Joining.csv")
 
 
 ## Check the differences between location names
@@ -23,7 +23,7 @@ COVID_Locations <- sort(unique(COVID_Cases_by_Local_Area$`Region name`))
 
 COVID_Geo_Union <- sort(unique(Geographic_Union$LOCAL_NAME)) 
 
-Diff <- setdiff(COVID_Locations,COVID_Geo_Union) %>% names("Counties") # Geographic union includes county aggregation, we don't need these
+Diff <- setdiff(COVID_Locations,COVID_Geo_Union)  # Geographic union includes county aggregation, we don't need these
 
 names(Diff) <- "Counties"
 
@@ -52,4 +52,4 @@ COVID_by_Census_Division <- Geographic_Union %>%
 
 ## Write Out Covid statistics by Census Division
 
-write_csv(COVID_by_Census_Division, "C:\\Users\\Keenan Viney\\Desktop\\Project Folder\\Rural Internet Access\\COVID\\COVID_by_Census_Division.csv")
+write_csv(COVID_by_Census_Division, "~\\COVID\\COVID_by_Census_Division.csv")
