@@ -12,7 +12,7 @@ library(cansim)
 
 # CERB 
 # http://www.edsc-esdc.gc.ca/ouvert-open/cerb/PCU_total_des_candidats_uniques_PT_groupe_age-CERB_total_unique_applicants_PT_Age_group.csv
-CERB <- read_csv("C:\\Users\\Keenan Viney\\Desktop\\Project Folder\\Rural Internet Access\\CERB\\CERB_total_unique_applicants_PT_Age_group.csv") %>% 
+CERB <- read_csv("~\\CERB\\CERB_total_unique_applicants_PT_Age_group.csv") %>% 
   select(End_of_week_date = `pcu_date_des_donnees_inclus-cerb_week_ending_date`,
          Province_abbreviation = `code_de_la_subdivision_canadienne-canadian_subdivision_code`,
          Age_Group = `code_de_groupe_dage-age_group_code`,
@@ -91,4 +91,4 @@ Employment_Insurance_with_CERB <- Employment_Insurance %>%
 
 ## Write out new EI Benefits with CERB dataset ----------------------------------------------------
 
-write.csv(Employment_Insurance_with_CERB, "C:\\Users\\Keenan Viney\\Desktop\\Project Folder\\Rural Internet Access\\CERB\\Employment_Insurance_with_CERB.csv")
+write.csv(Employment_Insurance_with_CERB, "~\\CERB\\Employment_Insurance_with_CERB.csv")
