@@ -12,11 +12,11 @@ library(cansim)
 
 ## Load Data --------------------------------------------------------------------------------------
 
-MLab <- read_csv("C:\\Users\\Keenan Viney\\Desktop\\Project Folder\\Rural Internet Access\\Joined_Attributes\\MLab_Joined_Attributes.csv")
+MLab <- read_csv("~\\MLab_Joined_Attributes.csv")
 
-Ookla <- read_csv("C:\\Users\\Keenan Viney\\Desktop\\Project Folder\\Rural Internet Access\\Joined_Attributes\\Ookla_Joined_Attributes.csv")
+Ookla <- read_csv("~\\Ookla_Joined_Attributes.csv")
 
-RMA <- read_csv("C:\\Users\\Keenan Viney\\Desktop\\Project Folder\\Rural Internet Access\\Joined_Attributes\\RMA_Joined_Attributes.csv") %>% 
+RMA <- read_csv("~\\RMA_Joined_Attributes.csv") %>% 
   mutate(Test_Date = mdy(`TEST DATE / UTC HOUR`))
 
 Employment_Insurance <- get_cansim("14-10-0323-01") %>% 
@@ -42,7 +42,7 @@ Working_Age_Population <- get_cansim("17-10-0139-01") %>%
          GeoUID = as.numeric(GeoUID))
 
 # https://www12.statcan.gc.ca/census-recensement/2016/dp-pd/dt-td/Rp-eng.cfm?TABID=4&LANG=E&A=R&APATH=3&DETAIL=0&DIM=0&FL=A&FREE=0&GC=48&GL=-1&GID=1261445&GK=1&GRP=1&O=D&PID=111840&PRID=10&PTYPE=109445&S=0&SHOWALL=0&SUB=0&Temporal=2017&THEME=123&VID=0&VNAMEE=&VNAMEF=&D1=0&D2=0&D3=0&D4=0&D5=0&D6=0
-Educational_Attainment <- read_csv("C:\\Users\\Keenan Viney\\Desktop\\Project Folder\\Rural Internet Access\\98-400-X2016261_ENG_CSV\\98-400-X2016261_English_CSV_data.csv") %>% 
+Educational_Attainment <- read_csv("~\\98-400-X2016261_English_CSV_data.csv") %>% 
   filter(GEO_LEVEL == 2,
          `DIM: Age (10)` == "Total - Age",
          `DIM: Work activity during the reference year (5)` == "Total - Work activity during the reference year",
@@ -57,10 +57,10 @@ Educational_Attainment <- read_csv("C:\\Users\\Keenan Viney\\Desktop\\Project Fo
          Report_Date = ymd(paste0(CENSUS_YEAR,"-01-01")))
 
 # Covid Metrics
-COVID_by_Census_Division <- read_csv("C:\\Users\\Keenan Viney\\Desktop\\Project Folder\\Rural Internet Access\\COVID\\COVID_by_Census_Division.csv")
+COVID_by_Census_Division <- read_csv("~\\COVID\\COVID_by_Census_Division.csv")
 
 # CERB 
-EI_with_CERB <- read_csv("C:\\Users\\Keenan Viney\\Desktop\\Project Folder\\Rural Internet Access\\CERB\\Employment_Insurance_with_CERB.csv")
+EI_with_CERB <- read_csv("~\\CERB\\Employment_Insurance_with_CERB.csv")
 
 ## Explore Internet Union Columns -----------------------------------------------------------------
 
